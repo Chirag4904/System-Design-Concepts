@@ -26,11 +26,27 @@ client.createTodo(
 	}
 );
 
-client.readTodos({}, (err, response) => {
-	console.log("Received from server");
-	if (!err) {
-		console.log("Todo: ", response);
-	} else {
-		console.error(err);
-	}
+// client.readTodos({}, (err, response) => {
+// 	console.log("Received from server");
+// 	if (!err) {
+// 		console.log("Todo: ", response);
+// 	} else {
+// 		console.error(err);
+// 	}
+// });
+
+//server will stream data to client
+
+const call = client.readTodosStream();
+
+call.on("data", (item) => {
+	console.log("received item from server", JSON.stringify(item));
+});
+
+call.on("error", (err) => {
+	console.error(err);
+});
+
+call.on("end", () => {
+	console.log("server done");
 });
