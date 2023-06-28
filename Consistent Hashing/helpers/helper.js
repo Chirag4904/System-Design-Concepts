@@ -36,3 +36,33 @@ export function assignDataToStorageNode(key, value, lookupArray) {
 	const nearestStorageNode = findNearestStorageNode(key, lookupArray);
 	storageNodeMap.get(nearestStorageNode).add(key, value);
 }
+
+export function findNextNode(currentNode, lookUpArray) {
+	const sortedLookupArray = lookUpArray.sort((a, b) => a - b);
+	const tempIndex = sortedLookupArray.indexOf(hash(currentNode.ip));
+	if (tempIndex === lookUpArray.length - 1) {
+		const nextNode = storageNodeMap.get(lookUpArray[0]);
+		return nextNode;
+	} else {
+		const nextNode = storageNodeMap.get(lookUpArray[tempIndex + 1]);
+		return nextNode;
+	}
+}
+
+export function findNextNodeForNewNode(newNodeHashValue, lookUpArray) {
+	const sortedLookupArray = lookUpArray.sort((a, b) => a - b);
+	let tempIndex = 0;
+	while (
+		tempIndex < sortedLookupArray.length &&
+		sortedLookupArray[tempIndex] < newNodeHashValue
+	) {
+		tempIndex++;
+	}
+	if (tempIndex === sortedLookupArray.length) {
+		const nextNode = storageNodeMap.get(sortedLookupArray[0]);
+		return nextNode;
+	} else {
+		const nextNode = storageNodeMap.get(sortedLookupArray[tempIndex]);
+		return nextNode;
+	}
+}
