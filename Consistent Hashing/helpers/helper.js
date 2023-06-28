@@ -21,20 +21,20 @@ export function findNearestStorageNode(key, lookupArray) {
 	//should use binary search but for now let's just use linear search
 	for (let i = 0; i < sortedLookupArray.length; i++) {
 		if (keyHash <= sortedLookupArray[0]) {
-			return sortedLookupArray[0];
+			return storageNodeMap.get(sortedLookupArray[0]);
 		}
 
 		// looking for the just right node
 		if (keyHash > sortedLookupArray[i] && keyHash <= sortedLookupArray[i + 1]) {
-			return sortedLookupArray[i + 1];
+			return storageNodeMap.get(sortedLookupArray[i + 1]);
 		}
 	}
-	return sortedLookupArray[0];
+	return storageNodeMap.get(sortedLookupArray[0]);
 }
 
 export function assignDataToStorageNode(key, value, lookupArray) {
 	const nearestStorageNode = findNearestStorageNode(key, lookupArray);
-	storageNodeMap.get(nearestStorageNode).add(key, value);
+	nearestStorageNode.add(key, value);
 }
 
 export function findNextNode(currentNode, lookUpArray) {
