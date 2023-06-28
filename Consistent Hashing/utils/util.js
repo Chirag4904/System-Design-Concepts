@@ -10,19 +10,21 @@ export const storageNodes = [
 export const TOTAL_SLOTS = 32;
 
 export const DATA = [
-	{ key: "key1", value: "value1" },
-	{ key: "key2", value: "value2" },
-	{ key: "key3", value: "value3" },
-	{ key: "key4", value: "value4" },
-	{ key: "key5", value: "value5" },
-	{ key: "key6", value: "value6" },
-	{ key: "key7", value: "value7" },
-	{ key: "key8", value: "value8" },
-	{ key: "key9", value: "value9" },
-	{ key: "key10", value: "value10" },
-	{ key: "key11", value: "value11" },
-	{ key: "key12", value: "value12" },
-	{ key: "key13", value: "value13" },
+	{ key: "key1", value: "node 1" },
+	{ key: "key2", value: "node 1" },
+	{ key: "key3", value: "node 1" },
+
+	{ key: "key10", value: "node 2" },
+
+	{ key: "key11", value: "node 3" },
+	{ key: "key12", value: "node 3" },
+	{ key: "key13", value: "node 3" },
+
+	{ key: "key24", value: "node 4" },
+	{ key: "key33", value: "nade 4" },
+	{ key: "key34", value: "node 4" },
+
+	{ key: "key55", value: "node 5" },
 ];
 
 export const lookUpArray = [];
