@@ -8,12 +8,14 @@ import {
 } from "./utils/util.js";
 import { hash, assignDataToStorageNode } from "./helpers/helper.js";
 import nodeRouter from "./routes/nodeRoutes.js";
+import dataRouter from "./routes/dataRoutes.js";
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
 app.use("/nodes", nodeRouter);
+app.use("/data", dataRouter);
 
 app.listen(3000, () => {
 	console.log("Server is listening on port 3000");
