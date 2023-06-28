@@ -26,5 +26,5 @@ app.listen(3000, () => {
 		assignDataToStorageNode(DATA[i].key, DATA[i].value, lookUpArray);
 	}
 	// console.log(lookUpArray);
-	console.log(storageNodeMap);
+	// console.log(storageNodeMap);
 });
